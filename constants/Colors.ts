@@ -25,3 +25,16 @@ export default {
     tabIconSelected: tintColorDark,
   },
 };
+
+export const colors = {
+    black: '#1a1917',
+    gray: '#888888',
+    background1: '#B721FF',
+    background2: '#21D4FD',
+    greenColorNormal: '#7bdb72',
+    greenColorLight: '#c6f5c1',
+    greenColorDark: '#105409',
+    orangeColorNormal: '#e3ba3d',
+    orangeColorLight: '#fae093',
+    orangeColorDark: '#ffc31c',
+};

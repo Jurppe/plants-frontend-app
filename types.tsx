@@ -56,3 +56,14 @@ export type PlantObject = {
   user_notes: Array<String>,
   watering_period: 'daily' | 'weekly' | 'monthly',
 }
+
+export type SliderPropsTypes = {
+  data: {
+    title: string,
+    subtitle: string,
+    illustration: string
+  }
+  even?: boolean,
+  parallax?: boolean,
+  parallaxProps?: object
+}

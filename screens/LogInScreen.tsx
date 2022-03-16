@@ -29,7 +29,6 @@ export default function LogInPage() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text style={styles.title}>Plants</Text>
       <Logo />
       <Text style={styles.infoText}>
         {state?.errorMsg}

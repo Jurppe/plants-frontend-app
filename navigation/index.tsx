@@ -111,14 +111,14 @@ function BottomTabNavigator() {
           ),
         })}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="AboutMe"
         component={AboutMeScreen}
         options={{
           title: 'About Me',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
-      />
+      /> */}
     </BottomTab.Navigator>
   );
 }
