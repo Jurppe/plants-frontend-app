@@ -73,10 +73,12 @@ export default StyleSheet.create({
         paddingHorizontal: 16,
         backgroundColor: colors.orangeColorLight,
         borderBottomLeftRadius: entryBorderRadius,
-        borderBottomRightRadius: entryBorderRadius
+        borderBottomRightRadius: entryBorderRadius,
+        height: 100,
     },
     textContainerEven: {
-        backgroundColor: colors.greenColorNormal
+        backgroundColor: colors.greenColorNormal,
+        height: 100,
     },
     title: {
         color: colors.black,
@@ -95,5 +97,27 @@ export default StyleSheet.create({
     },
     subtitleEven: {
         color: 'rgba(255, 255, 255, 0.7)'
-    }
+    },
+    statusContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+    },
+    statusItem: {
+        flex: 1,
+        textAlign: 'center',
+        alignItems: 'center',
+        padding: 0
+    },
+    statusTitle: {
+        textAlign: 'center',
+        padding: 0,
+        fontWeight: 'bold',
+    },
+    statusAge: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold'
+      },
 });

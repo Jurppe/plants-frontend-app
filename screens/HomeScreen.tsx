@@ -4,12 +4,13 @@ import { RootTabScreenProps } from '../types';
 import Logo from '../components/Logo';
 import HomeScreenInfo from '../components/HomeScreenInfo';
 import MyCarousel from '../components/HomeCarousel';
+import JSONdata from '../dummydata/myplants-dummy.json';
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'HomeScreen'>) {
   return (
     <View style={styles.container}>
       <Logo />
-      <MyCarousel />
+      <MyCarousel newData={JSONdata} />
     </View>
   );
 }

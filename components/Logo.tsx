@@ -17,7 +17,7 @@ export default function Logo() {
           borderRadius={100}
           iconStyle={styles.shadowProp}
         />
-        <Text style={styles.title}>Pläntit</Text>
+        <Text style={styles.title}>Plänt</Text>
     </View>
   )
 }

@@ -18,7 +18,6 @@ const Header = (props: any) => {
         }}
       />
       <View style={styles.headerItem}>
-        <Text style={styles.headerSubject}>Name</Text>
         <Text style={styles.headerName}>{props.name}</Text>
       </View>
 
@@ -50,8 +49,8 @@ const Header = (props: any) => {
               withPointer={true}
               backgroundColor={colors.primary}>
               {props.status
-                ? <Icon raised name='leaf' type='font-awesome' color='green' />
-                : <Icon raised name='leaf' type='font-awesome' color='red' />}
+                ? <Icon name='leaf' type='font-awesome' color='green' />
+                : <Icon name='leaf' type='font-awesome' color='red' />}
             </Tooltip>
           </View>
         </View>
@@ -60,7 +59,7 @@ const Header = (props: any) => {
             popover={props.status ? <Text>Im good</Text> : <Text>I need some water</Text>}
             withPointer={true}
             backgroundColor={colors.primary}>
-            {<Icon raised name={wateringIcon} type='font-awesome' color={wateringIconColor} />}
+            {<Icon name={wateringIcon} type='font-awesome' color={wateringIconColor} />}
           </Tooltip>
         </View>
       </View>

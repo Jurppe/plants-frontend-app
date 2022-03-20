@@ -37,4 +37,6 @@ export const colors = {
     orangeColorNormal: '#e3ba3d',
     orangeColorLight: '#fae093',
     orangeColorDark: '#ffc31c',
+    orangeColorNormalRGBA: 'rgba(227, 186, 61, 0.34)',
+    greenColorNormalRGBA: 'rgba(123, 219, 114, 0.34)',
 };

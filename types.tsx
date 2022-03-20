@@ -58,11 +58,7 @@ export type PlantObject = {
 }
 
 export type SliderPropsTypes = {
-  data: {
-    title: string,
-    subtitle: string,
-    illustration: string
-  }
+  data: PlantObject
   even?: boolean,
   parallax?: boolean,
   parallaxProps?: object

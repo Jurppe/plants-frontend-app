@@ -71,7 +71,7 @@ export const WateringFunctions = {
       return {wateringString: 'neutral', wateringIcon: 'battery-2', wateringIconColor: 'green'}
     }
     else if (daysTillNextWatering >= -3) {
-      return {wateringString: 'bad', wateringIcon: 'battery-1', wateringIconColor: 'yellow'}
+      return {wateringString: 'bad', wateringIcon: 'battery-1', wateringIconColor: 'orange'}
     }
     else if (daysTillNextWatering < -3) {
       return {wateringString: 'hopeless', wateringIcon: 'battery-0', wateringIconColor: 'red'}
@@ -79,6 +79,21 @@ export const WateringFunctions = {
     else {
       return {wateringString: 'unknown', wateringIcon: 'question-circle-o', wateringIconColor: 'gray'}
     }
-  }
+  },
+
+  overallStatusToString: function (isAlive: boolean, daysTillNextWatering: Number) {
+    if (isAlive && daysTillNextWatering > 0) {
+      return {statusIcon: 'smile-o', statusColor: 'green'}
+    }
+    else if (isAlive && daysTillNextWatering <= 0) {
+      return {statusIcon: 'meh-o', statusColor: 'orange'}
+    }
+    else if (!isAlive) {
+      return {statusIcon: 'frown-o', statusColor: 'red'}
+    }
+    else {
+      return {statusIcon: 'question', statusColor: 'black'}
+    }
+  },
 
 }

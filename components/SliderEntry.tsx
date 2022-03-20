@@ -1,19 +1,19 @@
-import React, { Component, useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { SpeedDial } from 'react-native-elements';
 import { ParallaxImage } from 'react-native-snap-carousel';
 import styles from '../assets/styles/SliderEntry.style';
 import { SliderPropsTypes } from '../types';
-
+import PlantInfoRow from '../components/PlantInfoRow';
+import { colors } from '../constants/Colors';
 
 export default function SliderEntry(props: SliderPropsTypes) {
-
   function get_image() {
-    const { data: { illustration }, parallax, parallaxProps, even } = props;
+    const { data: { picture }, parallax, parallaxProps, even } = props;
 
     return parallax ? (
       <ParallaxImage
-        source={{ uri: illustration }}
+        source={{ uri: picture.toString() }}
         containerStyle={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
         style={styles.image}
         parallaxFactor={0.35}
@@ -23,8 +23,8 @@ export default function SliderEntry(props: SliderPropsTypes) {
       />
     ) : (
       <Image
-        source={{ uri: illustration }}
-        style={styles.image}
+        source={{ uri: picture.toString() }}
+        style={styles.image} 
       />
     );
   }
@@ -32,16 +32,16 @@ export default function SliderEntry(props: SliderPropsTypes) {
   function handlePress() {
     setShowDetail(!showDetail)
   }
-
-  const { data: { title, subtitle }, even } = props;
+  const { data, even } = props;
   const [showDetail, setShowDetail] = useState(false);
-  
-  const uppercaseTitle = title ? (
+  const [open, setOpen] = React.useState(false);
+
+  const uppercaseTitle = data.name ? (
     <Text
       style={[styles.title, even ? styles.titleEven : {}]}
       numberOfLines={2}
     >
-      {title.toUpperCase()}
+      {data.name.toUpperCase()}
     </Text>
   ) : false;
 
@@ -49,23 +49,53 @@ export default function SliderEntry(props: SliderPropsTypes) {
     <TouchableOpacity
       activeOpacity={1}
       style={[styles.slideInnerContainer, styles.shadow]}
-      onPress={() => {handlePress()}}
+      onPress={() => { handlePress() }}
     >
 
       <View style={styles.shadow} />
       <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
         {get_image()}
         <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
-      </View>
-      <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
-        {uppercaseTitle}
-        <Text
-          style={[styles.subtitle, even ? styles.subtitleEven : {}]}
-          numberOfLines={2}
+        <SpeedDial
+          isOpen={open}
+          icon={{ name: 'edit', color: '#fff' }}
+          openIcon={{ name: 'close', color: '#fff' }}
+          onOpen={() => setOpen(!open)}
+          onClose={() => setOpen(!open)}
+          transitionDuration={200}
+          color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+          overlayColor='transparent'
         >
-          {subtitle}
-        </Text>
+          <SpeedDial.Action
+            icon={{ name: 'add', color: '#fff' }}
+            title="Add"
+            onPress={() => console.log('Add Something')}
+            color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+          />
+          <SpeedDial.Action
+            icon={{ name: 'delete', color: '#fff' }}
+            title="Delete"
+            onPress={() => console.log('Delete Something')}
+            color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+          />
+        </SpeedDial>
       </View>
+      {showDetail ?
+        <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
+          {uppercaseTitle}
+          <Text
+            style={[styles.subtitle, even ? styles.subtitleEven : {}]}
+            numberOfLines={2}
+          >
+            {data.about}
+          </Text>
+        </View>
+        :
+        <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
+          <PlantInfoRow data={data} even={even} />
+        </View>
+      }
+
     </TouchableOpacity>
   );
 }
