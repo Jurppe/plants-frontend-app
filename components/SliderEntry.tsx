@@ -63,20 +63,21 @@ export default function SliderEntry(props: SliderPropsTypes) {
           onOpen={() => setOpen(!open)}
           onClose={() => setOpen(!open)}
           transitionDuration={200}
-          color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+          color={even ? colors.greenColorNormal : colors.orangeColorNormal}
           overlayColor='transparent'
+          style={styles.speedDial}
         >
           <SpeedDial.Action
             icon={{ name: 'add', color: '#fff' }}
             title="Add"
             onPress={() => console.log('Add Something')}
-            color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+            color={even ? colors.greenColorNormal : colors.orangeColorNormal}
           />
           <SpeedDial.Action
             icon={{ name: 'delete', color: '#fff' }}
             title="Delete"
             onPress={() => console.log('Delete Something')}
-            color={even ? colors.orangeColorNormal : colors.greenColorNormal}
+            color={even ? colors.greenColorNormal : colors.orangeColorNormal}
           />
         </SpeedDial>
       </View>
@@ -98,4 +99,4 @@ export default function SliderEntry(props: SliderPropsTypes) {
 
     </TouchableOpacity>
   );
-}
+} 

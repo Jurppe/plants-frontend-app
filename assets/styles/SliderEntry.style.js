@@ -64,7 +64,7 @@ export default StyleSheet.create({
         backgroundColor: colors.orangeColorLight
     },
     radiusMaskEven: {
-        backgroundColor: colors.greenColorNormal
+        backgroundColor: colors.greenColorLight
     },
     textContainer: {
         justifyContent: 'center',
@@ -77,7 +77,7 @@ export default StyleSheet.create({
         height: 100,
     },
     textContainerEven: {
-        backgroundColor: colors.greenColorNormal,
+        backgroundColor: colors.greenColorLight,
         height: 100,
     },
     title: {
@@ -87,7 +87,7 @@ export default StyleSheet.create({
         letterSpacing: 0.5
     },
     titleEven: {
-        color: 'white'
+        color: 'black'
     },
     subtitle: {
         marginTop: 6,
@@ -96,28 +96,13 @@ export default StyleSheet.create({
         fontStyle: 'italic'
     },
     subtitleEven: {
-        color: 'rgba(255, 255, 255, 0.7)'
+        color: colors.gray,
     },
-    statusContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flex: 1,
+    speedDial: {
+        shadowColor: colors.black,
+        shadowOpacity: 1,
+        shadowOffset: { width: 0, height: 10 },
+        shadowRadius: 10,
+        paddingBottom: 10
     },
-    statusItem: {
-        flex: 1,
-        textAlign: 'center',
-        alignItems: 'center',
-        padding: 0
-    },
-    statusTitle: {
-        textAlign: 'center',
-        padding: 0,
-        fontWeight: 'bold',
-    },
-    statusAge: {
-        textAlign: 'center',
-        fontSize: 20,
-        fontWeight: 'bold'
-      },
 });
