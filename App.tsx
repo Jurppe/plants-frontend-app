@@ -13,7 +13,6 @@ import { AuthContext } from './context/AuthContext';
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
-  const [errorMessage, setErrorMessage] = React.useState('');
   const [state, dispatch] = React.useReducer(
     (prevState: any, action: any) => {
       switch (action.type) {

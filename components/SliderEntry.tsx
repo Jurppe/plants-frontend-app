@@ -32,10 +32,14 @@ export default function SliderEntry(props: SliderPropsTypes) {
   function handlePress() {
     setShowDetail(!showDetail)
   }
+
+  function handleShower() {
+    console.log('add showering, event:', data.name)
+  }
+
   const { data, even } = props;
   const [showDetail, setShowDetail] = useState(false);
   const [open, setOpen] = React.useState(false);
-
   const uppercaseTitle = data.name ? (
     <Text
       style={[styles.title, even ? styles.titleEven : {}]}
@@ -58,7 +62,7 @@ export default function SliderEntry(props: SliderPropsTypes) {
         <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
         <SpeedDial
           isOpen={open}
-          icon={{ name: 'edit', color: '#fff' }}
+          icon={{ name: 'settings', color: '#fff' }}
           openIcon={{ name: 'close', color: '#fff' }}
           onOpen={() => setOpen(!open)}
           onClose={() => setOpen(!open)}
@@ -68,14 +72,14 @@ export default function SliderEntry(props: SliderPropsTypes) {
           style={styles.speedDial}
         >
           <SpeedDial.Action
-            icon={{ name: 'add', color: '#fff' }}
-            title="Add"
-            onPress={() => console.log('Add Something')}
+            icon={{ name: 'shower', color: '#fff', type: 'font-awesome' }}
+            title="Water"
+            onPress={() => handleShower()}
             color={even ? colors.greenColorNormal : colors.orangeColorNormal}
           />
           <SpeedDial.Action
-            icon={{ name: 'delete', color: '#fff' }}
-            title="Delete"
+            icon={{ name: 'edit', color: '#fff' }}
+            title="Modify"
             onPress={() => console.log('Delete Something')}
             color={even ? colors.greenColorNormal : colors.orangeColorNormal}
           />
